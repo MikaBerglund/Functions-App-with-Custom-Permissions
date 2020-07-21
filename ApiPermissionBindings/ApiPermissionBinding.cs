@@ -17,7 +17,7 @@ namespace ApiPermissionBindings
     public class ApiPermissionBinding : IBinding
     {
 
-        public ApiPermissionBinding(PermissionMode mode, IEnumerable<string> requiredPermissions)
+        internal ApiPermissionBinding(PermissionMode mode, IEnumerable<string> requiredPermissions)
         {
             this.Mode = mode;
             this.RequiredPermissions = requiredPermissions;
@@ -54,6 +54,9 @@ namespace ApiPermissionBindings
 
     public class ApiPermissionBindingProvider : IBindingProvider
     {
+        internal ApiPermissionBindingProvider() { }
+
+
         public async Task<IBinding> TryCreateAsync(BindingProviderContext context)
         {
             var attribute = context.Parameter.GetCustomAttribute<PermissionGatewayAttribute>();
