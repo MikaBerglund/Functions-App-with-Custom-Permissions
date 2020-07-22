@@ -20,7 +20,7 @@ namespace ApiClient
         {
             var configRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("local.settings.json", optional: false, reloadOnChange: true)
                 .Build();
 
             var root = configRoot.Get<RootConfigSection>();
