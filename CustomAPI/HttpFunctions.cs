@@ -28,7 +28,7 @@ namespace CustomAPI
         private ApplicationConfigSection AppConfig;
         private HttpResponseMessage DefaultResponse = new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("Action succeeded.") };
 
-        [FunctionName(Names.Read)]
+        [FunctionName(nameof(Read))]
         public async Task<HttpResponseMessage> Read(
             [HttpTrigger("GET", Route = "read")]HttpRequestMessage request,
             [PermissionGateway(Permissions.DataReadAll, Permissions.DataReadWriteAll)]PermissionGateway gateway,
@@ -41,7 +41,7 @@ namespace CustomAPI
             });
         }
 
-        [FunctionName(Names.Write)]
+        [FunctionName(nameof(Write))]
         public async Task<HttpResponseMessage> Write(
             [HttpTrigger("POST", Route = "write")]HttpRequestMessage request,
             [PermissionGateway(Permissions.DataReadWriteAll)]PermissionGateway gateway,
